@@ -38,6 +38,9 @@
         myhome.niri.keyboard-layout = "us";
         myhome.niri.keyboard-variant = "qwerty";
       }
+      {
+        myhome.dropbox.enable = true;
+      }
     ];
   };
 

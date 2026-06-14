@@ -13,7 +13,6 @@
   myhome.devtools.enable = true;
   myhome.kak.enable = true;
   myhome.flatpak.enable = true;
-  myhome.dropbox.enable = true;
 
   # myhome.colors.colorscheme = "nord";
 }

@@ -20,6 +20,7 @@
     ./colors.nix
     ./dropbox.nix
     ./waybar.nix
+    ./maestral.nix
   ];
 
   options = {

@@ -34,6 +34,9 @@
       stylix.homeModules.stylix
       nix-flatpak.homeManagerModules.nix-flatpak
       nix-index-database.homeModules.default
+      {
+        myhome.maestral.enable = true;
+      }
     ];
   };
 

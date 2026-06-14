@@ -7,7 +7,7 @@
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
     stylix = {
-      url = "github:danth/stylix"; # need to bring back to stable when they release it
+      url = "github:danth/stylix/release-26.05"; # need to bring back to stable when they release it
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
