@@ -42,8 +42,6 @@ with lib;
       keyboard-variant = config.myhome.niri.keyboard-variant;
     };
 
-    myhome.decommon.enable = true;
-    myhome.deway.enable = true;
-
+    myhome.desktop.enable = true;
   };
 }

@@ -22,8 +22,6 @@ with lib;
 
     programs.zoxide.enable = true;
 
-    programs.fzf.enable = true;
-
     programs.nix-index.enable = true;
 
     programs.fish = {

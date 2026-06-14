@@ -60,15 +60,13 @@
 
   mysystem.enablegc = true;
   mysystem.flatpak.enable = true;
-  # mysystem.tailscale.enable = true;
   mysystem.niri = true;
-  mysystem.sway = false;
   mysystem.user = "a";
   mysystem.userdescription = "estaugaard";
   mysystem.wpasupplicant.enable = true;
-  mysystem.virt = true;
+  mysystem.virt = false;
   mysystem.ssh.enable = true;
-  mysystem.aarch-binfmt = true;
+  mysystem.aarch-binfmt = false;
   mysystem.printing = true;
 
   mysystem.grub = true;

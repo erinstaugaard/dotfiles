@@ -47,11 +47,4 @@
   mysystem.systemd-boot = false;
   mysystem.grub = false;
   mysystem.grub-device = "/dev/mmcblk0";
-
-  mysystem.flatpak.enable = false;
-  mysystem.niri = false;
-  mysystem.sway = false;
-  mysystem.xmonad = false;
-  mysystem.amd = false;
-  mysystem.virt = false;
 }

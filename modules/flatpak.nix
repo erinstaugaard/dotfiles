@@ -9,7 +9,7 @@ with lib;
 {
   options.myhome.flatpak = {
     enable = mkOption {
-      description = "enable shared parts of the \"de\"";
+      description = "enable flatpak";
       type = lib.types.bool;
       default = false;
     };
@@ -17,35 +17,24 @@ with lib;
 
   config = mkIf config.myhome.flatpak.enable {
     home.packages = with pkgs; [
-      gnome-software
       flatpak
+      warehouse
     ];
 
     services.flatpak.enable = true;
 
-    services.flatpak.remotes = lib.mkOptionDefault [
-      {
-        name = "wpilib-origin";
-        location = "file:///home/a/Dropbox/wpilibflatpak/repo";
-      }
-    ];
-
     services.flatpak.packages = [
       "com.bitwarden.desktop"
       "com.github.tchx84.Flatseal"
-      "com.github.unrud.VideoDownloader"
+      # "com.github.unrud.VideoDownloader"
       "com.obsproject.Studio"
       "com.spotify.Client"
       "dev.vencord.Vesktop"
-      "io.bassi.Amberol"
-      "io.github.celluloid_player.Celluloid"
-      "io.github.flattool.Warehouse"
-      "io.github.wxmaxima_developers.wxMaxima"
-      "net.lutris.Lutris"
+      # "io.bassi.Amberol"
+      # "io.github.wxmaxima_developers.wxMaxima"
+      # "net.lutris.Lutris"
       "org.blender.Blender"
       "org.gimp.GIMP"
-      "org.gnome.Evince"
-      "org.gnome.eog"
       "org.inkscape.Inkscape"
       "org.libreoffice.LibreOffice"
       "org.mozilla.Thunderbird"
