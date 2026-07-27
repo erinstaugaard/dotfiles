@@ -41,7 +41,7 @@ let
         };
 
         "t" = {
-          application = "org.mozilla.Thunderbird";
+          application = "org.mozilla.thunderbird_esr";
         };
 
         "o" = {

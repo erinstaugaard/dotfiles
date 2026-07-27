@@ -60,10 +60,10 @@ with lib;
 
     services.printing.enable = true;
 
-    programs.gamescope = {
-      enable = config.mysystem.steam;
-      capSysNice = true;
-    };
+    # programs.gamescope = {
+    #   enable = config.mysystem.steam;
+    #   capSysNice = true;
+    # };
 
     programs.steam = {
       enable = config.mysystem.steam;

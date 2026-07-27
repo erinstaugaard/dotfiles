@@ -28,7 +28,7 @@ with lib;
         WantedBy = [ "default.target" ];
       };
       Service = {
-        ExecStart = "${pkgs-unstable.maestral}/bin/maestral";
+        ExecStart = "${pkgs-unstable.maestral}/bin/maestral start -f";
         Restart = "on-failure";
       };
     };
