@@ -7,7 +7,6 @@
 }:
 {
   imports = [
-    ./decommon.nix
     ./devtools.nix
     ./toys.nix
     ./rofi.nix
@@ -15,14 +14,12 @@
     ./fish.nix
     ./kitty.nix
     ./niri
-    ./deway.nix
     ./swaync.nix
     ./desktop.nix
     ./flatpak.nix
     ./colors.nix
     ./dropbox.nix
     ./waybar.nix
-    ./makima.nix
     ./maestral.nix
   ];
 
@@ -68,8 +65,9 @@
               popd
             '';
             collect-garbage = ''
-              nix-collect-garbage --delete-older-than 5d
-              sudo nix-collect-garbage --delete-older-than 5d
+              nix-collect-garbage -d
+              sudo nix-collect-garbage -d
+              nix-store --optimise
             '';
             update-button = ''
               kitty bash -c 'system update; fish' &

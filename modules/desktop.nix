@@ -7,6 +7,27 @@
 }:
 with builtins;
 with lib;
+let
+  lockscreen = pkgs.stdenv.mkDerivation rec {
+    name = "lockscreen";
+    src = lib.fileset.toSource {
+      root = ./.;
+      fileset = ./lock.svg;
+    };
+    foreground = "#${config.lib.stylix.colors.base09}";
+
+    buildPhase = ''
+      substituteAllInPlace lock.svg
+    '';
+
+    installPhase = ''
+      mkdir $out
+
+      ${pkgs.inkscape}/bin/inkscape --export-type "png" --export-filename "$out/lock.png" lock.svg
+    '';
+  };
+
+in
 {
   options.myhome.desktop = {
     enable = mkOption {
@@ -22,6 +43,16 @@ with lib;
       ripgrep
       alsa-utils
       qrcp
+      libqalculate
+      libnotify
+      nautilus
+      beauty-line-icon-theme
+      swaybg
+      wl-clipboard
+      celluloid
+      evince
+      eog
+
       (makeDesktopItem rec {
         name = "bluetui-desktop";
         desktopName = "Bluetui";
@@ -81,6 +112,49 @@ with lib;
       "x-scheme-handler/http" = [ "librewolf.desktop" ];
       "x-scheme-handler/https" = [ "librewolf.desktop" ];
       "application/pdf" = [ "org.gnome.Evince.desktop" ];
+    };
+
+    programs.librewolf.enable = true;
+    stylix.targets.librewolf.firefoxGnomeTheme.enable = true;
+    stylix.targets.librewolf.enable = true;
+    stylix.targets.librewolf.profileNames = [ "default" ];
+
+    myhome.kitty.enable = true;
+    myhome.rofi.enable = true;
+
+    gtk.enable = true;
+    gtk.iconTheme = {
+      name = "BeautyLine";
+      package = pkgs.beauty-line-icon-theme;
+    };
+
+    home.sessionVariables.WLR_RENDERER = "vulkan";
+
+    myhome.waybar.enable = true;
+    myhome.swaync.enable = true;
+
+    stylix.targets.swaylock.useWallpaper = false;
+
+    programs.swaylock.enable = true;
+    programs.swaylock.package = pkgs.swaylock;
+
+    services.swayidle = {
+      enable = true;
+      events.before-sleep = "${pkgs.swaylock}/bin/swaylock -fF";
+      timeouts = [
+        {
+          timeout = 120;
+          command = "${pkgs.niri-stable}/bin/niri msg action power-off-monitors";
+        }
+        {
+          timeout = 180;
+          command = "${pkgs.swaylock}/bin/systemctl hybrid-sleep";
+        }
+      ];
+    };
+
+    programs.swaylock.settings = {
+      image = "${lockscreen}/lock.png";
     };
   };
 }
