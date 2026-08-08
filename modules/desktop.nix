@@ -115,9 +115,38 @@ in
     };
 
     programs.librewolf.enable = true;
+
     stylix.targets.librewolf.firefoxGnomeTheme.enable = true;
     stylix.targets.librewolf.enable = true;
     stylix.targets.librewolf.profileNames = [ "default" ];
+
+    programs.librewolf.profiles.default.userChrome =
+      let
+        mycss = pkgs.writeText "style.css" ''
+          :is(menupopup, panel){
+              &::part(content) {
+                --panel-background-color: #363a4f !important;
+                background: #363a4f !important;
+              }
+          }
+
+          #sidebar-container {
+          	background: #363a4f !important;
+          }
+
+          :is(menupopup, panel):where(:not([type="arrow"])) {
+            --panel-background-color: inherit !important;
+          }
+
+          html {
+            --panel-background-color: #363a4f !important; 
+            --gnome-sidebar-background: #363a4f !important;
+          }
+        '';
+      in
+      ''
+        @import "${mycss}";
+      '';
 
     myhome.kitty.enable = true;
     myhome.rofi.enable = true;
