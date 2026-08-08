@@ -9,30 +9,15 @@ with builtins;
 with lib;
 {
   options.mysystem = {
-    sway = mkOption {
-      description = "enable sway system stuff";
-      type = lib.types.bool;
-      default = false;
-    };
     niri = mkOption {
       description = "enable niri system stuff";
       type = lib.types.bool;
       default = false;
     };
-    xmonad = mkOption {
-      description = "enable xmonad system stuff";
-      type = lib.types.bool;
-      default = false;
-    };
-    xserver = mkOption {
-      description = "enable x11 system stuff";
-      type = lib.types.bool;
-      default = config.mysystem.xmonad;
-    };
     gui = mkOption {
       description = "enable common gui components";
       type = lib.types.bool;
-      default = config.mysystem.niri || config.mysystem.sway || config.mysystem.xmonad;
+      default = config.mysystem.niri;
     };
     loginManager = mkOption {
       description = "enable login manager";
@@ -52,18 +37,12 @@ with lib;
   };
 
   config = mkIf config.mysystem.gui {
-    environment.systemPackages = with pkgs; [
-      catppuccin-gtk
-      beauty-line-icon-theme
-      xterm
-    ];
-
     services.printing.enable = true;
 
-    programs.gamescope = {
-      enable = config.mysystem.steam;
-      capSysNice = true;
-    };
+    # programs.gamescope = {
+    #   enable = config.mysystem.steam;
+    #   capSysNice = true;
+    # };
 
     programs.steam = {
       enable = config.mysystem.steam;
@@ -98,9 +77,6 @@ with lib;
     programs.dconf.enable = true;
     security.rtkit.enable = true;
 
-    programs.sway.enable = config.mysystem.sway;
-    programs.sway.package = pkgs.sway;
-
     programs.niri.enable = config.mysystem.niri;
     niri-flake.cache.enable = false;
 
@@ -111,16 +87,6 @@ with lib;
       fontconfig = {
         defaultFonts = {
           monospace = [ "FiraCode" ];
-        };
-      };
-    };
-
-    services.xserver = {
-      # xkb.variant= "dvorak";
-      enable = config.mysystem.xserver;
-      windowManager = {
-        xmonad = {
-          enable = config.mysystem.xmonad;
         };
       };
     };

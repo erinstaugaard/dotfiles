@@ -127,6 +127,7 @@ with lib;
       libsecret
       sops
       impala
+      bluetui
     ];
 
     users.users."${(config.mysystem.user)}" = {
