@@ -32,7 +32,7 @@ with lib;
       "dev.vencord.Vesktop"
       # "io.bassi.Amberol"
       # "io.github.wxmaxima_developers.wxMaxima"
-      # "net.lutris.Lutris"
+      "net.lutris.Lutris"
       "org.blender.Blender"
       "org.gimp.GIMP"
       "org.inkscape.Inkscape"
