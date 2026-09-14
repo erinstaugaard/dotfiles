@@ -138,11 +138,8 @@ with lib;
         "networkmanager"
         "wheel"
         "audio"
-        "wireshark"
         "pipewire"
         "video"
-        "libvirtd"
-        "docker"
       ];
       packages = with pkgs; [ libglvnd ];
       initialPassword = config.mysystem.initialPassword;

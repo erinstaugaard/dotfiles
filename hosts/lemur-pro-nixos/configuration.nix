@@ -76,6 +76,7 @@
   mysystem.systemd-boot = false;
   mysystem.steam = true;
   mysystem.bluetooth = true;
+  mysystem.firewall = true;
 
   mysystem.dev.enable = true;
 

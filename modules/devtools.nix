@@ -42,9 +42,10 @@ in
       # general c stuff (so most languages)
       pkg-config
       glib
-      # valgrind
+      valgrind
       gcc
       lld
+      gnumake
 
       # librsvg
       # libglvnd
@@ -58,7 +59,6 @@ in
       # misc
       # nodePackages.node2nix
       # chez
-      # gnumake
 
       nixfmt
 

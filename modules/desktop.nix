@@ -51,6 +51,7 @@ in
       wl-clipboard
       celluloid
       evince
+      evolution
       eog
 
       (makeDesktopItem rec {
