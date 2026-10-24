@@ -296,7 +296,7 @@ with pkgs;
           app-id = "^Signal$";
         }
         {
-          app-id = "^org.gnome.Evolution$";
+          app-id = "^org.mozilla.thunderbird$";
         }
       ];
       default-column-width = {

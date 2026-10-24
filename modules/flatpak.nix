@@ -37,7 +37,7 @@ with lib;
       "org.gimp.GIMP"
       "org.inkscape.Inkscape"
       "org.libreoffice.LibreOffice"
-      # "org.mozilla.thunderbird"
+      "org.mozilla.thunderbird"
       "org.torproject.torbrowser-launcher"
       "org.prismlauncher.PrismLauncher"
       "in.cinny.Cinny"
@@ -48,7 +48,7 @@ with lib;
       "org.freedesktop.Sdk.Extension.texlive//25.08"
       "us.zoom.Zoom"
       "net.trowell.typesetter"
-      "org.gnome.Calendar"
+      # "org.gnome.Calendar"
     ];
 
     services.flatpak.uninstallUnmanaged = true;
