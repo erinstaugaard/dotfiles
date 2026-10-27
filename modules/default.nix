@@ -59,9 +59,8 @@
             '';
             update = ''
               pushd ~/dotfiles
-              git pull origin main
-              sudo nixos-rebuild switch --flake "."
-              ssh root@69.48.200.159 "apt-get update; apt-get upgrade"
+              nix flake update
+              sudo nixos-rebuild boot --flake "."
               popd
             '';
             collect-garbage = ''
